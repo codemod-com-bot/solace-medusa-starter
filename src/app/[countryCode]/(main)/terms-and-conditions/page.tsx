@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Metadata } from 'next'
 
 import { getContentPage } from '@lib/data/fetch'
@@ -16,6 +17,8 @@ export const metadata: Metadata = {
 }
 
 export default async function TermsAndConditionsPage() {
+const { t } = useTranslation();
+
   const {
     data: { PageContent },
   } = await getContentPage('terms-and-condition', 'terms-and-conditions')
@@ -33,8 +36,7 @@ export default async function TermsAndConditionsPage() {
     <Container className="min-h-screen max-w-full bg-secondary !p-0">
       <Container className="!py-8">
         <StoreBreadcrumbs breadcrumb="Terms & Conditions" />
-        <Heading as="h1" className="mt-4 text-4xl medium:text-5xl">
-          Terms & Conditions
+        <Heading as="h1" className="mt-4 text-4xl medium:text-5xl">{t('terms')}& Conditions
         </Heading>
         <Box className="mt-6 grid grid-cols-12 medium:mt-12">
           <Box className="col-span-12 mb-10 medium:col-span-3 medium:mb-0">

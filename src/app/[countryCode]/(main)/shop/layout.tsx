@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Metadata } from 'next'
 
 import { Box } from '@modules/common/components/box'
@@ -15,6 +16,8 @@ export const metadata: Metadata = {
 }
 
 export default function StorePageLayout({ children }: StorePageLayoutProps) {
+const { t } = useTranslation();
+
   return (
     <>
       <Container className="flex flex-col gap-8 !py-8">
@@ -23,9 +26,7 @@ export default function StorePageLayout({ children }: StorePageLayoutProps) {
           <Heading
             as="h1"
             className="text-4xl text-basic-primary small:text-5xl"
-          >
-            All products
-          </Heading>
+          >{t('all-products')}</Heading>
         </Box>
       </Container>
       {children}
